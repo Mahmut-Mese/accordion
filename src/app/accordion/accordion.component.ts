@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
- 
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+
 @Component({
   selector: 'accordion',
   templateUrl: './accordion.component.html',
@@ -13,23 +13,20 @@ export class AccordionComponent implements OnInit {
   }
   activeIndex = 0;
 
-   @Input() opened = false;
+  @Input() opened = false;
 
- 
-   @Input() panels:any;
-   
- 
-  
-   toggle( i: number) {
-   // event.preventDefault();
-   if(this.activeIndex === i){
-    this.activeIndex = -1;
-   }else{
-    this.activeIndex = i
-   }
-    
-    console.log(this.activeIndex);
+
+  @Input() panels: any;
+
+
+
+  toggle(i: number) {
+    if (this.activeIndex === i) {
+      this.activeIndex = -1;
+    } else {
+      this.activeIndex = i
+    }
+
   }
-   
- //  @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
+
 }
