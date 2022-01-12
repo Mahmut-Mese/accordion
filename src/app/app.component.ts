@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'accordion-project';
+ panelsFromParent  = [
+    { "title": 'aa', "body": "Available" },
+    { "title": 'erer', "body": "Ready" },
+    { "title": 'eras', "body": "Started" }
+];
 }

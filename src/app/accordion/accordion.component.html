@@ -1,0 +1,28 @@
+<!-- <div class="mypanel">
+  <div  *ngFor="let panel of panels; let i = index" [ngClass]="{'active' : activeIndex === i}">
+    <div class="title" (click)="toggle(i)">
+      {{panel.title}}
+    </div>
+    <div class="body"  >
+   {{panel.body}}
+    </div>
+</div>
+  <div> -->
+    <div class="container">
+        <h1>HAVE A QUESTION? WE CAN HELP</h1>
+        <hr>
+    <section class="row" *ngFor="let panel of panels; let i = index" (click)="toggle(i)" [ngClass]="{'active' : activeIndex === i}">
+        <div class="accordion-btn">
+          <strong>Q{{i+1}}</strong>
+          <p>    {{panel.title}}</p>
+          <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
+            <g id="add" class="add"><path   
+                  d="M357,204H204v153h-51V204H0v-51h153V0h51v153h153V204z"/></g>
+                </svg>
+            </div>
+            <div class="answer active">
+                {{panel.body}}
+            </div>
+    </section>
+        
+    </div>
