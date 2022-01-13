@@ -1,6 +1,4 @@
-<div class="container">
-    <h1>HAVE A QUESTION? WE CAN HELP</h1>
-    <hr>
+
     <section *ngFor="let panel of panels; let i = index" (click)="toggle(i)" [ngClass]="{'active' : activeIndex === i}">
         <div class="accordion-btn">
             <div class="question-number"> <strong>Q{{i+1}}</strong> </div>
@@ -14,4 +12,3 @@
             {{panel.answer}}</div>
         </div>
     </section>
-</div>

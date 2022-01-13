@@ -31,17 +31,7 @@
     top: 50%;
 }
 
-h1{
-    font-size: 2rem;
-    font-family: 'oswald-bold';
-    line-height: 27px;
-}
-.container {
-	width: 800px;
-	margin: 90px auto;
-	color: black;
-	background-color: #fff;
-}
+
 
 p{
     font-size: 0.8em;
@@ -49,13 +39,7 @@ p{
     font-weight: 600;
 }
 
-hr {
-	border-top: 3px solid rgb(0, 0, 0);
-	&:first-of-type {
-		border-top: 20px solid rgb(0, 0, 0);
-		margin: 17px 0 20px 0;
-	}
-}
+
 section {
        border-bottom: 3px solid;
 	 .accordion-btn {
@@ -127,14 +111,6 @@ $breakpoint-mobile: 768px;
         font-size: 0.2em;
         left: 60px;
     }
-    h1{
-        font-size:1rem;
-    }
-    .container{
-        width: auto;
-        padding: 0;
-        margin: 40px 0;
-    }
     .accordion-btn{
         font-size: 3.3rem; 
     }
@@ -157,9 +133,6 @@ $breakpoint-mobile: 768px;
 }
 $breakpoint-small-mobile: 375px;
 @media (max-width: $breakpoint-small-mobile) {
-    h1  {
-        font-size:0.8rem;
-    }
     .answer {
         font-size: 0.7em;
         padding:  0px;
