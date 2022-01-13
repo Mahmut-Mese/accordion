@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.accordionService.getAllPanels().subscribe((panels) => {
       this.panelsFromParent = panels;
-    });;
+    });
 
   }
 }
