@@ -1,95 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 @font-face {
-    font-family: oswald;
-    src: url(../../assets/fonts/oswald-bold.ttf);
+    font-family: 'oswald-bold';
+    src: url('../../assets/fonts/oswald-bold.ttf') format("truetype");
 }
 @font-face {
-    font-family: light-oswald;
-    src: url(../../assets/fonts/oswald-light.ttf);
+    font-family: 'light-oswald';
+    src: url('../../assets/fonts/oswald-light.ttf') format("truetype");
 }
 @font-face {
-    font-family: regular-oswald;
-    src: url(../../assets/fonts/oswald-regular.ttf);
+    font-family: 'regular-oswald';
+    src: url('../../assets/fonts/oswald-regular.ttf') format("truetype");
 }
 
 @mixin
  theme($theme: #FED303) {
   background-color: $theme;
 }
-
+@mixin transition($property, $speed, $ease) {
+    -webkit-transition: $property $speed $ease;
+    -moz-transition: $property $speed  $ease;
+    -o-transition: $property $speed  $ease;
+    transition: $property $speed  $ease;
+  }
 %paddingten {
   padding: 15px;
 }
+%vertical-center{
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+}
 
 h1{
-    font-size: 2.3rem;
-    font-family: oswald;
+    font-size: 2rem;
+    font-family: 'oswald-bold';
+    line-height: 27px;
 }
-
-strong{
-    font-size: 1.7rem;
-    font-family: oswald;
-}
-
-.svg-rotate__icon{
-  @include theme;
-    width: 45px;
-    height: 45px;
-    padding: 8px;
-}
-
-.add {
-		transform: rotate(45deg);
-		transform-origin: 50% 50%;
-}
-
-section {
-    border-bottom: 3px solid;
-	 .accordion-btn {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-content: center;
-		justify-content: space-between;
-		align-items: center;
-		@extend %paddingten;
-	}
-}
-
-.active 
-{
-    .accordion-btn{
-    background-color:#aaa;
-}
-.answer{
-    display: block;
-}}
-
-.answer {
-    display: none;
-    font-family: regular-oswald;
-    @extend %paddingten;
-}
-
- 
-
 .container {
 	width: 800px;
 	margin: 90px auto;
 	color: black;
-	background-color: white;
-	padding: 45px 45px;
-	.row {
-		position: relative;
-		margin: 10px 0;
-	}
+	background-color: #fff;
 }
 
 p{
-    margin-right: 370px;
-    font-size: 1em;
-    font-family: light-oswald;
+    font-size: 0.8em;
+    font-family: 'light-oswald';
     font-weight: 600;
 }
 
@@ -97,6 +53,124 @@ hr {
 	border-top: 3px solid rgb(0, 0, 0);
 	&:first-of-type {
 		border-top: 20px solid rgb(0, 0, 0);
-		margin: 17px 0 15px 0;
+		margin: 17px 0 20px 0;
 	}
+}
+section {
+       border-bottom: 3px solid;
+	 .accordion-btn {
+		height: 45px;
+		@extend %paddingten;
+        @include transition(background-color, 0.75s, ease-out);
+        position: relative;
+        p{
+           @extend %vertical-center;
+            margin: 0;
+            left: 100px;
+        }
+        .question-number{
+            font-size: 1.4rem;
+            font-family: 'oswald-bold';
+            @extend %vertical-center;
+        }
+        .svg-rotate__icon{
+             @include theme;
+             width: 30px;
+             height: 30px;
+             padding: 8px;
+             @extend %vertical-center;
+             right: 10px;
+    }
+	} 
+    
+    .add{
+        background-image: url('../../assets/img/plus-icon.svg');
+        height: 30px;
+        @include transition(transform, 0.75s, ease);
+        background-size: 25px 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+    
+    }
+    .answer {
+        font-family: 'regular-oswald';
+        max-height: 0;
+        @include transition(max-height, 0.75s, ease-out);
+        overflow: hidden;
+        font-size: 0.8em;
+        &-content{  
+        @extend %paddingten;
+        }
+    }
+}
+
+.active {  
+    .accordion-btn{
+    background-color:#aaa;
+    @include transition(background-color, 0.75s, ease-in);}
+   .answer{
+    max-height: 500px;
+    @include transition(max-height, 0.75s, ease-in);}
+   .add {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+      @include transition(transform, 0.75s, ease);}
+    }
+
+$breakpoint-mobile: 768px;
+@media (max-width: $breakpoint-mobile) {
+    section .accordion-btn p {
+        max-width: 60%;
+        font-size: 0.2em;
+        left: 60px;
+    }
+    h1{
+        font-size:1rem;
+    }
+    .container{
+        width: auto;
+        padding: 0;
+        margin: 40px 0;
+    }
+    .accordion-btn{
+        font-size: 3.3rem; 
+    }
+    .svg-rotate__icon{
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        .add{
+            height: 25px;
+            background-size: 20px 20px;
+        }
+    }
+    p{
+        font-size: 1.7rem; 
+    }
+    .question-number {
+        font-size: 0.3em;
+    }
+         
+}
+$breakpoint-small-mobile: 375px;
+@media (max-width: $breakpoint-small-mobile) {
+    h1  {
+        font-size:0.8rem;
+    }
+    .answer {
+        font-size: 0.7em;
+        padding:  0px;
+    }
+    .svg-rotate__icon{
+        width: 30px;
+        height: 30px;
+        padding: 5;
+    }
+    p{
+        font-size: 1rem; 
+        margin-right: 0;
+    }
 }

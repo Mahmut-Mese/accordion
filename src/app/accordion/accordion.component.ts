@@ -12,14 +12,7 @@ export class AccordionComponent implements OnInit {
   ngOnInit(): void {
   }
   activeIndex = 0;
-
-  @Input() opened = false;
-
-
   @Input() panels: any;
-
-
-
   toggle(i: number) {
     if (this.activeIndex === i) {
       this.activeIndex = -1;
